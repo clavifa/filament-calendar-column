@@ -11,7 +11,6 @@ $date = $getState();
         width: 65px;
         padding: 5px;
     ">
-    {{-- CALENDÁRIO --}}
     <div
         style="
             width: 55px;
@@ -30,8 +29,8 @@ $date = $getState();
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #82b484;
-                color: #ffffff;
+                background: {{ $getCalendarBackground() }};
+                color: {{ $getCalendarColor() }};
                 font-size: 11px;
                 font-weight: 700;
                 line-height: 15px;
@@ -68,13 +67,13 @@ $date = $getState();
                     text-transform: uppercase;
                     line-height: 10px;
                 ">
-                {{ $date ? ucfirst($date->translatedFormat('M')) : '' }}
+                {{ $date ? ucfirst($date->locale($getMonthLocale())->translatedFormat($getMonthFormat())) : '' }}
             </div>
         </div>
     </div>
 
     {{-- HORA --}}
-    @if ($date)
+    @if ($getShowTime() && $date)
     <div
         style="
                 display: inline-flex;
@@ -83,8 +82,8 @@ $date = $getState();
                 gap: 3px;
                 padding: 2px 6px;
                 border-radius: 9999px;
-                background: #c4dfc5;
-                color: #111827;
+                background: {{ $getTimeBackground() }};
+                color: {{ $getTimeColor() }};
                 font-size: 11px;
                 font-weight: 600;
                 line-height: 14px;
@@ -97,7 +96,7 @@ $date = $getState();
                     flex-shrink: 0;
                 " />
 
-        {{ $date->format('H:i') }}
+        {{ $date->format($getTimeFormat()) }}
     </div>
     @endif
 </div>
