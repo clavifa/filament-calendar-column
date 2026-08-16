@@ -10,10 +10,15 @@ The plugin displays a date value as a compact calendar with year, day, month and
 
 ---
 
+## Preview
+
+![Filament Calendar Column](docs/screenshot.png)
+
+---
+
 ## Requirements
 
 - PHP `^8.3`
-- Laravel `^13.0`
 - Filament `^5.0`
 
 ---
