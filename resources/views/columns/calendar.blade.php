@@ -2,6 +2,7 @@
 $date = $getState();
 @endphp
 
+@if (!blank($date))
 <div
     style="
         display: flex;
@@ -100,3 +101,4 @@ $date = $getState();
     </div>
     @endif
 </div>
+@endif
